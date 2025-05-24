@@ -4,7 +4,7 @@ import sys
 
 # ----------- Display Utilities -----------
 
-def slow_print(text, delay=0):
+def slow_print(text, delay=0.02):
     """slow_print text one character at a time for dramatic effect."""
     for char in text:
         sys.stdout.write(char)

@@ -1,6 +1,8 @@
-'''import pygame
+import pygame
 import sys
 from UI_elements import Button
+from ascii_art import slow_print_art
+from utils import *
 
 # Import your existing modules
 from character import Character
@@ -36,8 +38,11 @@ def run_game():
     """)
     
     player = Character.create_character()
+    player.visited_worlds = []            # Track explored realms
+    player.unchosen_skills = []           # For Echoed Self simulation
+  
     slow_print(f"Welcome, {player.name} the {player.char_class}!")
-    slow_print(player)
+    slow_print(format_stats(player))
     inventory = Inventory(player.name)
 
     world_manager = setup_worlds()
@@ -47,11 +52,15 @@ def run_game():
     game_story = Story(player, inventory, world_manager)
     game_story.start()
 
-    if player.visited_all_realms():
+    if all(world.completed for world in world_manager.all_worlds):
         slow_print("\n🏁 Next Step: Final Challenge")
-        slow_print("“You have explored all available worlds! Prepare for the final challenge soon.”")
-        nexus = FracturedNexus(player)
-        nexus.enter()
+        slow_print("“You have explored all available worlds. The final challenge awaits...”")
+        enter = input("Do you wish to enter the Fractured Nexus? (yes/no): ").strip().lower()
+        if enter in ["yes", "y"]:
+            nexus = FracturedNexus(player,inventory)
+            nexus.enter()
+        else:
+            slow_print("You turn away, for now...")
 
 def main_menu():
     button_start = Button(WIDTH//2 - 100, HEIGHT//2 - 60, 200, 50, 'Start New Game', font, WHITE, BLACK, GRAY)
@@ -143,4 +152,4 @@ def main():
             slow_print("You turn away, for now...")
 
 if __name__ == "__main__":
-    main()
+    main()'''

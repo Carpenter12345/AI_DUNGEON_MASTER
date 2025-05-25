@@ -1,9 +1,11 @@
 from character import Character
 from ascii_art import slow_print_art
 from utils import *
+from inventory import *
 class FracturedNexus:
-    def __init__(self, player):
+    def __init__(self, player,inventory):
         self.player = player
+        self.inventory=inventory
         self.echo = self.generate_echoed_self()
         self.completed=False
 
@@ -72,10 +74,11 @@ class FracturedNexus:
             #abilities=self.echo["traits"]
         )
 
-        combat = Combat(self.player, echoed_self)
+        combat = Combat(self.player, self.inventory)
         outcome = combat.start_combat(echoed_self)
+        #print(f"\nOutcomne:{outcome}")
 
-        if outcome == "player": 
+        if outcome:
             slow_print("\n🔥 You conquer the Echo. The realm quiets...")
         else:   
             slow_print("\n💀 You fall. But perhaps, in falling, you learn...")

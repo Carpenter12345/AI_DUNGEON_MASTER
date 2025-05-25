@@ -95,7 +95,7 @@ class Combat:
 
     def evaluate_outcome(self, enemy):
         if self.player.health <= 0:
-            if self.player.char_class == "Ashborn" and self.player.level <= 5 and not self.player.has_awakening_triggered:
+            if self.player.char_class == "Ashborn" and self.player.level <= 6 and not self.player.has_awakening_triggered:
                 slow_print("\nDarkness takes you. The cold whispers of death begin to coil around your soul...")
                 slow_print("But the Ash clings to you. Refuses to let go.")
                 slow_print('"Only through death shall the fire be reborn."')

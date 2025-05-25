@@ -17,7 +17,7 @@ class FracturedNexus:
         self.ending_choice()
 
     def describe_realm_fragments(self):
-        slow_print("Fragments of the realms you've visited float in the void:")
+        slow_print("Fragments of the realms you've visited float in the nexus:")
         for world in self.player.visited_worlds:
             slow_print(f" - The essence of {world.name} shimmers in the air...")
 

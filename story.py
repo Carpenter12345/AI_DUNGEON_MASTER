@@ -94,7 +94,7 @@ class Story:
             for i, world in enumerate(accessible_worlds, start=1):
                 slow_print(f"{world.name} - {world.description}")
 
-            choice = input("\nChoose a world to enter (number) or 'q' to quit: ").strip()
+            choice = input("\nEnter 1 or 'q' to quit: ").strip()
 
 
             if choice.lower() == 'q':

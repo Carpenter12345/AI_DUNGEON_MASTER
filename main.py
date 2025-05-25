@@ -14,6 +14,8 @@ from final_realm import FracturedNexus
 pygame.init()
 
 WIDTH, HEIGHT = 800, 600
+background = pygame.image.load("background.jpg")
+background = pygame.transform.scale(background, (WIDTH, HEIGHT))
 screen = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption("AI Dungeon Master")
 
@@ -70,7 +72,7 @@ def main_menu():
     buttons = [button_start, button_load, button_quit]
 
     while True:
-        screen.fill(BLACK)
+        screen.blit(background, (0, 0))
         draw_text('AI Dungeon Master', font, WHITE, screen, WIDTH//2, HEIGHT//4)
 
         mouse_pos = pygame.mouse.get_pos()
